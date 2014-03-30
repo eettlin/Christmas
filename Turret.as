@@ -18,6 +18,7 @@
 		var currEnemy:int;
 		var e:Array;
 		var count:Number = 0;
+		var bulletType:Number;
 
 		public function Turret()
 		{
@@ -53,6 +54,7 @@
 			fireDelay--;  
 			if ((parent) != null && fireDelay < 0 && (getDistanceToEnemy(e[currEnemy])) <= ts.range) //addes third condition
 			{
+				 this.bulletType = ts.bulletType;
 				(parent as MovieClip).makeBullet(x, y, rotation, ts.bulletType, ts.range);
 				fireDelay = 24;
 			}

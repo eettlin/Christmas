@@ -12,15 +12,14 @@
 
 	public class Christmas extends MovieClip
 	{
-
 		var pa:PlayArea;
 		var ma:MenuArea;
 		var ia:InfoArea;
 		var maxEnemies:Number = 0;
-	    var waypoints:Array;
+		var waypoints:Array;
 		public var enemies:Array;
 		var bullets:Array;
-
+		var bullet:Bullet;
 		var gameBank:PointBank = new PointBank(500);
 		var lifePoints:PointBank = new PointBank(100);
 		var waypointObject:DisplayObject;
@@ -31,9 +30,10 @@
 		var turret:Turret;
 		var range:Range = new Range(30);
 
+
 		public function Christmas()
 		{
-			
+
 			waypoints = new Array();
 			enemies = new Array();
 			bullets = new Array();
@@ -45,8 +45,8 @@
 			addEventListener(Event.ENTER_FRAME, updateChristmas);
 			addEventListener(Event.ENTER_FRAME, enemyLoop);
 			addEventListener(Event.ENTER_FRAME, bulletLoop);
-			
-			
+
+
 		}
 		public function updateChristmas(evt:Event):void
 		{
@@ -54,10 +54,10 @@
 			initEnemy();
 			//updateInfoArea();
 		}
-		
-				public function addTurret(t:Turret):void
+
+		public function addTurret(t:Turret):void
 		{
-			
+
 			range.updateRangeRadius(t.getRange());
 			this.addChild(range);
 			turret = t;
@@ -139,13 +139,31 @@
 
 		}// end loop function
 
-		public function makeBullet(sx:int, sy:int, sr:int, bt:int, r:Number):void
+		public function makeBullet(tx:int, ty:int, tr:int, bt:int, r:Number):void
 		{
 
-			var bullet:Bullet = new Bullet(100);
-			bullet.x = sx;
-			bullet.y = sy;
-			bullet.rotation = sr;
+			//var bullet:Bullet = new Bullet(100);
+			switch (bt){
+
+					case 1:
+						bullet = new BulletOne(10);
+						break;
+
+					case 2:
+						bullet = new BulletTwo(20);
+						break;
+
+					case 3:
+						bullet = new BulletThree(30);
+						break;
+					case 4:
+						bullet = new BulletFour(40);
+						break;
+
+				}
+			bullet.x = tx;
+			bullet.y = ty;
+			bullet.rotation = tr;
 			bullet.mask = createPlayAreaMask();
 			bullets.push(bullet);
 			this.addChild(bullet);
@@ -153,7 +171,7 @@
 
 		private function initEnemy():void
 		{
-			
+
 			if (sendEnemy == true)
 			{
 				var enemy:Enemy = new Enemy(waypoints);

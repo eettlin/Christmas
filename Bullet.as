@@ -7,7 +7,7 @@
 	
 	public class Bullet extends MovieClip {
 		
-		var speed:Number = 15;
+		var speed:Number = 20;
 		var startPosition:Point = new Point(100,100);
 		
 		public function Bullet(hp:Number) {

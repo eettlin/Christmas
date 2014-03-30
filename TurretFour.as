@@ -7,7 +7,9 @@
 		
 		
 		public function TurretFour() {
-			super()
+			super();
+			ts.bulletType = 4;
+			ts.range = 400;
 		}
 	}
 	

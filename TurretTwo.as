@@ -10,7 +10,7 @@
 			super();
 			
 			ts.bulletType = 2;
-			ts.range = 100;
+			ts.range = 200;
 		}
 	}
 	
