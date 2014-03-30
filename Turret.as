@@ -50,7 +50,7 @@
 			}
 			var dx:Number = x - e[currEnemy].x;
 			var dy:Number = y - e[currEnemy].y;
-			rotation = -90 + Math.atan2(dy, dx)/Math.PI*180;
+			rotation = Math.atan2(dy, dx)/Math.PI*180 + 180;
 			fireDelay--;  
 			if ((parent) != null && fireDelay < 0 && (getDistanceToEnemy(e[currEnemy])) <= ts.range) //addes third condition
 			{

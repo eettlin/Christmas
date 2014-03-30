@@ -174,7 +174,26 @@
 
 			if (sendEnemy == true)
 			{
-				var enemy:Enemy = new Enemy(waypoints);
+				//var enemy:Enemy = new Enemy(waypoints);
+				var enemyNumber: Number = Math.floor(Math.random()*4)+1
+				switch (enemyNumber){
+
+					case 1:
+						enemy = new EnemyOne(waypoints);
+						break;
+
+					case 2:
+						enemy = new EnemyTwo(waypoints);
+						break;
+
+					case 3:
+						enemy = new EnemyThree(waypoints);
+						break;
+					case 4:
+						enemy = new EnemyFour(waypoints);
+						break;
+
+				}
 				enemy.x = 850;
 				enemy.y = 150;
 				enemy.rotation = Math.random() * 360;
