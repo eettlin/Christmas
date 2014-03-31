@@ -17,6 +17,7 @@
 		var fullHealth:Number;
 		var moneyValue:Number;
 		var lifePoints:Number;
+		var lpSet:Boolean = false;
 
 		public function Enemy(wp:Array, moneyValue:Number, lifePoints:Number)
 		{
@@ -62,6 +63,14 @@
 				this.y = this.y + Math.sin(this.rotation / 180 * Math.PI) * speed;
 			}
 			rotation = 0;  // Keep enemy oriented in single position
+			
+			
+			trace("(parent as MovieClip).lifePoints.getValue() = " + (parent as MovieClip).lifePoints.getValue());
+			if(x < 0  && !lpSet)
+			{
+				(parent as MovieClip).lifePoints.changeValue(-5);
+				lpSet = true;
+			}
 		}
 		
 		public function setLifePoints(lp:Number):void
