@@ -28,11 +28,12 @@
 
 		public function updateTurret(evt:Event):void
 		{
-			var r:Christmas = root as Christmas;
+			//trace("parent = " + parent);
+			/*var r:LevelOne = root as LevelOne;
 			if (r == null) {
 				return;
-			}
-			e = r.enemies;
+			}*/
+			e = (parent as MovieClip).enemies;
 			
 			shortestDistance = 1000;
 			for(var i:int = 0; i < e.length; i++)
@@ -52,7 +53,7 @@
 			var dy:Number = y - e[currEnemy].y;
 			rotation = Math.atan2(dy, dx)/Math.PI*180 + 180;
 			fireDelay--;  
-			if ((parent) != null && fireDelay < 0 && (getDistanceToEnemy(e[currEnemy])) <= ts.range) //addes third condition
+			if ((parent) != null && fireDelay < 0 && (getDistanceToEnemy(e[currEnemy])) <= ts.range) //added third condition
 			{
 				 this.bulletType = ts.bulletType;
 				(parent as MovieClip).makeBullet(x, y, rotation, ts.bulletType, ts.range);

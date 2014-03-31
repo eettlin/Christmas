@@ -27,6 +27,10 @@
 
 		public function spawnTurret(e:MouseEvent):void
 		{
+			
+			/*trace("parent = " + parent);
+			trace("parent.parent = " + parent.parent);
+			trace("parent.parent.parent = " + parent.parent.parent);*/
 			switch (turretNumber){
 
 					case 1:
@@ -46,11 +50,13 @@
 
 				}
 
-			if (t != null && (root as Christmas).gameBank.getValue() >=  cost)
+			if (t != null )
 			{
+				//trace("t = " + t);
 				t.x = 100;
 				t.y = 100;
-				(root as Christmas).addTurret(t);
+				
+				(parent.parent as MovieClip).addTurret(t);
 			}
 			else if (t!= null)
 			{
