@@ -80,12 +80,17 @@
 			hb.greenBar.width *= (this.lifePoints/fullHealth);
 		}
 		
-		public function setBankPoints(mv:Number):void
+		public function changeMoneyValue(mv:Number):void
+		{
+			this.moneyValue += mv;
+		}
+
+		public function setMoneyValue(mv:Number):void
 		{
 			this.moneyValue = mv;
 		}
 		
-		public function getBankPoints():Number
+		public function getMoneyValue():Number
 		{
 			return moneyValue;
 		}

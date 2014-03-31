@@ -20,7 +20,7 @@
 		public var enemies:Array;
 		var bullets:Array;
 		var bullet:Bullet;
-		var gameBank:PointBank = new PointBank(500);
+		var gameBank:PointBank = new PointBank(600);
 		var lifePoints:PointBank = new PointBank(100);
 		var waypointObject:DisplayObject;
 		var enemyDelay:int = 24;
@@ -52,7 +52,7 @@
 		{
 
 			initEnemy();
-			//updateInfoArea();
+			updateInfoArea();
 		}
 
 		public function addTurret(t:Turret):void
@@ -73,8 +73,8 @@
 
 		private function updateInfoArea():void
 		{
-			ia.bank_value.text = String(gameBank.getValue());
-			ia.life_points.text = String(lifePoints.getValue());
+			ia.bankValue.text = String(gameBank.getValue());
+			ia.lifePoints.text = String(lifePoints.getValue());
 		}
 		public function enemyTimerTick(tevt:TimerEvent):void
 		{
@@ -94,8 +94,8 @@
 		//  ********************************************************************
 		private function getDistance(o1:Object, o2:Object):Number
 		{
-			var dx:Number = o2.x-o1.x;
-			var dy:Number = o2.y-o1.y;
+			var dx:Number = o2.x - o1.x;
+			var dy:Number = o2.y - o1.y;
 			return Math.sqrt(dx*dx + dy*dy);
 		}
 		//  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -126,19 +126,20 @@
 						if (bullets[i].hitTestObject(enemies[j]))
 						{
 							enemies[j].changeLifePoints(-bullets[i].getHitPoints());
-						}
-						if (enemies[j].getLifePoints() < 0)
-						{
-							// remove ornament from parent
+							// remove ornament from parent;
 							this.removeChild(bullets[i]);
 							// remove ornament from the array
 							bullets.splice(i,1);
+						}
+						if (enemies[j].getLifePoints() < 0)
+						{
+							gameBank.changeValue(enemies[j].getMoneyValue());
 							// remove devil from parent
 							this.removeChild(enemies[j]);
 							// remove devil from the array
 							enemies.splice(j,1);
 						}
-						
+
 					}
 
 				}
@@ -150,24 +151,25 @@
 		{
 
 			//var bullet:Bullet = new Bullet(100);
-			switch (bt){
+			switch (bt)
+			{
 
-					case 1:
-						bullet = new BulletOne(tx, ty, 10, r);
-						break;
+				case 1 :
+					bullet = new BulletOne(tx,ty,10,r);
+					break;
 
-					case 2:
-						bullet = new BulletTwo(tx, ty,20, r);
-						break;
+				case 2 :
+					bullet = new BulletTwo(tx,ty,20,r);
+					break;
 
-					case 3:
-						bullet = new BulletThree(tx, ty,30, r);
-						break;
-					case 4:
-						bullet = new BulletFour(tx, ty,40, r);
-						break;
+				case 3 :
+					bullet = new BulletThree(tx,ty,30,r);
+					break;
+				case 4 :
+					bullet = new BulletFour(tx,ty,40,r);
+					break;
 
-				}
+			}
 			bullet.x = tx;
 			bullet.y = ty;
 			bullet.rotation = tr;
@@ -182,22 +184,23 @@
 			if (sendEnemy == true)
 			{
 
-				var enemyNumber: Number = Math.floor(Math.random()*4)+1
-				switch (enemyNumber){
+				var enemyNumber:Number = Math.floor(Math.random() * 4) + 1;
+				switch (enemyNumber)
+				{
 
-					case 1:
-						enemy = new EnemyOne(waypoints, 100, 100); //bankpoints and lifepoints
+					case 1 :
+						enemy = new EnemyOne(waypoints,100,200);//bankpoints and lifepoints
 						break;
 
-					case 2:
-						enemy = new EnemyTwo(waypoints, 100, 100);
+					case 2 :
+						enemy = new EnemyTwo(waypoints,100,200);
 						break;
 
-					case 3:
-						enemy = new EnemyThree(waypoints, 100, 100);
+					case 3 :
+						enemy = new EnemyThree(waypoints,100,200);
 						break;
-					case 4:
-						enemy = new EnemyFour(waypoints, 100, 100);
+					case 4 :
+						enemy = new EnemyFour(waypoints,100,200);
 						break;
 
 				}
