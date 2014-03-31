@@ -8,10 +8,16 @@
 	public class Bullet extends MovieClip {
 		
 		var speed:Number = 20;
-		var startPosition:Point = new Point(100,100);
+		var range:Number = 0;
+		var startPosition:Point = new Point(12,12);
+		var currPosition:Point = new Point(0,0);
 		
-		public function Bullet(hp:Number) {
-	
+		public function Bullet(strtx:Number, strty:Number, hp:Number, range:Number) 
+		{
+			this.range = range;
+			startPosition.x = strtx;
+			startPosition.y = strty;
+			
 		}
 		
 		public function updateBullet():void
@@ -25,9 +31,18 @@
 			return startPosition;
 		}
 		
-		public function setStartPosition(sp:Point):void
+		public function getCurrentPosition(): Point
 		{
-			startPosition = sp;
+			currPosition.x = x;
+			currPosition.y = y;
+			return currPosition;
 		}
+		
+		public function getRange(): Number
+		{
+			return this.range;
+		}
+		
+		
 	}
 }

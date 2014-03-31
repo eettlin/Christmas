@@ -6,8 +6,8 @@
 	public class Bullet1 extends Bullet {
 		
 		
-		public function Bullet1(hp:Number) {
-			super(hp);
+		public function Bullet1(hp:Number, range:Number) {
+			super(hp, range);
 		}
 	}
 	

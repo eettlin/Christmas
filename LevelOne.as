@@ -91,8 +91,14 @@
 			}
 
 		}
-
-
+		//  ********************************************************************
+		private function getDistance(o1:Object, o2:Object):Number
+		{
+			var dx:Number = o2.x-o1.x;
+			var dy:Number = o2.y-o1.y;
+			return Math.sqrt(dx*dx + dy*dy);
+		}
+		//  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		private function bulletLoop(evt:Event):void
 		{
 			for (var oi:int = 0; oi < bullets.length; oi++)
@@ -100,11 +106,7 @@
 				if (bullets[oi] != null)
 				{
 					bullets[oi].updateBullet();
-
-					if (bullets[oi].x < 0||
-					   bullets[oi].x > 800||
-					   bullets[oi].y < 0||
-					   bullets[oi].y > 800)
+					if (getDistance(bullets[oi].getStartPosition(),bullets[oi].getCurrentPosition()) > bullets[oi].getRange())
 					{
 						// remove ornament from parent
 						this.removeChild(bullets[oi]);
@@ -146,18 +148,18 @@
 			switch (bt){
 
 					case 1:
-						bullet = new BulletOne(10);
+						bullet = new BulletOne(tx, ty, 10, r);
 						break;
 
 					case 2:
-						bullet = new BulletTwo(20);
+						bullet = new BulletTwo(tx, ty,20, r);
 						break;
 
 					case 3:
-						bullet = new BulletThree(30);
+						bullet = new BulletThree(tx, ty,30, r);
 						break;
 					case 4:
-						bullet = new BulletFour(40);
+						bullet = new BulletFour(tx, ty,40, r);
 						break;
 
 				}
