@@ -9,12 +9,14 @@
 		
 		var speed:Number = 20;
 		var range:Number = 0;
+		var hitPoints:Number;
 		var startPosition:Point = new Point(12,12);
 		var currPosition:Point = new Point(0,0);
 		
 		public function Bullet(strtx:Number, strty:Number, hp:Number, range:Number) 
 		{
 			this.range = range;
+			this.hitPoints = hp;
 			startPosition.x = strtx;
 			startPosition.y = strty;
 			
@@ -29,6 +31,11 @@
 		public function getStartPosition(): Point
 		{
 			return startPosition;
+		}
+		
+		public function getHitPoints(): Number
+		{
+			return hitPoints;
 		}
 		
 		public function getCurrentPosition(): Point

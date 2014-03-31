@@ -6,8 +6,8 @@
 	public class EnemyFour extends Enemy {
 		
 		
-		public function EnemyFour(wp:Array) {
-			super(wp);
+		public function EnemyFour(wp:Array, bv:Number, lp:Number) {
+			super(wp, bv, lp);
 		}
 	}
 	

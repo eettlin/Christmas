@@ -125,6 +125,10 @@
 					{
 						if (bullets[i].hitTestObject(enemies[j]))
 						{
+							enemies[j].changeLifePoints(-bullets[i].getHitPoints());
+						}
+						if (enemies[j].getLifePoints() < 0)
+						{
 							// remove ornament from parent
 							this.removeChild(bullets[i]);
 							// remove ornament from the array
@@ -134,6 +138,7 @@
 							// remove devil from the array
 							enemies.splice(j,1);
 						}
+						
 					}
 
 				}
@@ -176,23 +181,23 @@
 
 			if (sendEnemy == true)
 			{
-				//var enemy:Enemy = new Enemy(waypoints);
+
 				var enemyNumber: Number = Math.floor(Math.random()*4)+1
 				switch (enemyNumber){
 
 					case 1:
-						enemy = new EnemyOne(waypoints);
+						enemy = new EnemyOne(waypoints, 100, 100); //bankpoints and lifepoints
 						break;
 
 					case 2:
-						enemy = new EnemyTwo(waypoints);
+						enemy = new EnemyTwo(waypoints, 100, 100);
 						break;
 
 					case 3:
-						enemy = new EnemyThree(waypoints);
+						enemy = new EnemyThree(waypoints, 100, 100);
 						break;
 					case 4:
-						enemy = new EnemyFour(waypoints);
+						enemy = new EnemyFour(waypoints, 100, 100);
 						break;
 
 				}

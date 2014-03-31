@@ -15,18 +15,18 @@
 		var offSet:int = 100;
 		var hb:HealthBar = new HealthBar();
 		var fullHealth:Number;
-		var bankPoints:Number;
+		var moneyValue:Number;
 		var lifePoints:Number;
 
-		public function Enemy(wp: Array)
+		public function Enemy(wp:Array, moneyValue:Number, lifePoints:Number)
 		{
-			//this.lifePoints = lifePoints;
-		    //fullHealth = lifePoints;
-			//this.bankPoints = bankPoints;
+			this.lifePoints = lifePoints;
+		    fullHealth = lifePoints;
+			this.moneyValue = moneyValue;
 			waypoints = wp;
-			//hb.x = 0;
-			//hb.y = 50;
-			//addChild(hb);
+			hb.x = -25;
+			hb.y = -40;
+			addChild(hb);
 		}
 		public function updateEnemy():void
 		{
@@ -45,7 +45,6 @@
 			{
 				var dx:Number = waypoints[currWP].x - x;
 				var dy:Number = waypoints[currWP].y - y;
-
 				dist = Math.sqrt(dx*dx + dy*dy);
 			}
 
@@ -59,7 +58,6 @@
 				var dx:Number = waypoints[currWP].x - x;
 				var dy:Number = waypoints[currWP].y - y;
 				rotation = Math.atan2(dy,dx) / Math.PI * 180;
-
 				this.x = this.x + Math.cos(this.rotation / 180 * Math.PI) * speed;
 				this.y = this.y + Math.sin(this.rotation / 180 * Math.PI) * speed;
 			}
@@ -78,18 +76,18 @@
 		
 		public function changeLifePoints(cp:Number):void
 		{
-		    //this.lifePoints += cp;
-			//hb.gBar.width *= (this.lifePoints/fullHealth);
+		    this.lifePoints += cp;
+			hb.greenBar.width *= (this.lifePoints/fullHealth);
 		}
 		
-		public function setBankPoints(bp:Number):void
+		public function setBankPoints(mv:Number):void
 		{
-			this.bankPoints = bp;
+			this.moneyValue = mv;
 		}
 		
 		public function getBankPoints():Number
 		{
-			return bankPoints;
+			return moneyValue;
 		}
 		
 
