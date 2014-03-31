@@ -193,14 +193,14 @@
 						break;
 
 					case 2 :
-						enemy = new EnemyTwo(waypoints,100,200);
+						enemy = new EnemyTwo(waypoints,150,200);
 						break;
 
 					case 3 :
-						enemy = new EnemyThree(waypoints,100,200);
+						enemy = new EnemyThree(waypoints,200,200);
 						break;
 					case 4 :
-						enemy = new EnemyFour(waypoints,100,200);
+						enemy = new EnemyFour(waypoints,250,200);
 						break;
 
 				}
@@ -279,19 +279,19 @@
 		{
 
 			ma.addTile(new Tile(new IconOne(),
-			100,
+			50,
 			1));
 
 			ma.addTile(new Tile(new IconTwo(),
-			100,
+			50,
 			2));
 
 			ma.addTile(new Tile(new IconThree(),
-			100,
+			50,
 			3));
 
 			ma.addTile(new Tile(new IconFour(),
-			100,
+			50,
 			4));
 
 		}

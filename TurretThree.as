@@ -10,6 +10,7 @@
 			super();
 			ts.bulletType = 3;
 			ts.range = 300;
+			ts.bankValue = 50;
 		}
 	}
 	

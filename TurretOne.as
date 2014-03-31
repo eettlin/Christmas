@@ -11,6 +11,7 @@
 			
 			ts.bulletType = 1;
 			ts.range = 100;
+			ts.bankValue = 50;
 		}
 	}
 	

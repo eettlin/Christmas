@@ -28,6 +28,10 @@
 		public function spawnTurret(e:MouseEvent):void
 		{
 			
+			if((parent.parent as MovieClip).gameBank.getValue() < 0)
+			{
+				return;
+			}
 			/*trace("parent = " + parent);
 			trace("parent.parent = " + parent.parent);
 			trace("parent.parent.parent = " + parent.parent.parent);*/
@@ -52,13 +56,14 @@
 
 			if (t != null )
 			{
-				//trace("t = " + t);
+				trace("-t.ts.bankValue = "+ -t.ts.bankValue);
+				(parent.parent as MovieClip).gameBank.changeValue(-t.ts.bankValue)
 				t.x = 100;
 				t.y = 100;
 				
 				(parent.parent as MovieClip).addTurret(t);
 			}
-			else if (t!= null)
+			else 
 			{
 				trace("Insufficient Funds");
 			}
