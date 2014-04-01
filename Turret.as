@@ -80,7 +80,7 @@
 		
 		public function getRange():Number
 		{
-			return 300;
+			return ts.range;
 		}
 
 	}

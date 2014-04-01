@@ -37,6 +37,7 @@
 			waypoints = new Array();
 			enemies = new Array();
 			bullets = new Array();
+
 			setAreas();
 			loadWaypoints();
 			enemyTimer.start();
