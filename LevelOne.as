@@ -206,8 +206,8 @@
 
 				}
 				
-				enemy.x = 850;
-				enemy.y = 150;
+				enemy.x = 1000;
+				enemy.y =250;
 				enemy.rotation = Math.random() * 360;
 				enemy.mask = createPlayAreaMask();
 				enemies.push(enemy);
