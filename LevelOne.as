@@ -205,6 +205,7 @@
 						break;
 
 				}
+				
 				enemy.x = 850;
 				enemy.y = 150;
 				enemy.rotation = Math.random() * 360;

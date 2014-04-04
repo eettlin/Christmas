@@ -7,8 +7,8 @@
 
 	public class Christmas extends MovieClip
 	{
-		var req:URLRequest = new URLRequest("jb.mp3");
-		var jb:Sound = new Sound(req);
+		var reqSound:URLRequest = new URLRequest("jb.mp3");
+		var jb:Sound = new Sound(reqSound);
 
 
 		public function Christmas()
